@@ -27,7 +27,7 @@ class ViewController extends Controller
         $rooms = Rooms::where('aksi', '1');
         $guest = Guest::with('rooms')->orderBy('deleted_at','asc')->get();
       
-        //print_r($guest);
+        // print_r($guest);
         return view('admin.dashboard.view', [
             'guest' => $guest->whereNull('deleted_at')->count(),
             'payment' => $guest->where('deleted_at', !NULL)->sum('payment'),
