@@ -6,6 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <!-- Tell the browser to be responsive to screen width -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="description" content="">
         <meta name="author" content="">
         
@@ -97,7 +98,7 @@
                             <li class="list-divider"></li>
                             <li class="nav-small-cap"><span class="hide-menu">Authentication</span></li>
 
-                            <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="authentication-login1.html"
+                            <li class="sidebar-item profile"> <a class="sidebar-link sidebar-link" href="javascript:;"
                                     aria-expanded="false"><i class="fas fa-user"></i><span
                                         class="hide-menu">My Profile
                                     </span></a>

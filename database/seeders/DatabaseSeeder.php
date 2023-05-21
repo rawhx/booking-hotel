@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
             'password' => bcrypt('admin'),
-            'profile' => '/admin/assets/images/users/profile-pic.jpg',
+            'profile' => 'https://www.its.ac.id/international/wp-content/uploads/sites/66/2020/02/blank-profile-picture-973460_1280-300x300.jpg',
         ]);
 
         $this->call(RoomsSeeder::class);

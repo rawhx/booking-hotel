@@ -59,4 +59,9 @@ class ViewController extends Controller
             'guest' => $guest,
         ]);
     }
+
+    public function profile()
+    {
+        return view('admin.profile.view');
+    }
 }
