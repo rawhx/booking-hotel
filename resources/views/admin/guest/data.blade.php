@@ -13,16 +13,16 @@
     <tbody>
         @foreach ($guest as $no => $guest)    
         <tr>
-            <td>{{$no+1}}</td>
-            <td style="max-width: 70px">
+            <td class="text-truncate">{{$no+1}}</td>
+            <td class="text-truncate">
                 {{$guest['name']}}
                 <p style="font-size: 9pt; margin:0">{{$guest['phone']}}</p>
             </td>
-            <td>{{$guest['number_id']}}</td>
-            <td>{{$guest['checkin']}}</td>
-            <td>{{$guest['checkout']}}</td>
-            <td>{{$guest->rooms->name ?? None}}</td>
-            <td>
+            <td class="text-truncate">{{$guest['number_id']}}</td>
+            <td class="text-truncate">{{$guest['checkin']}}</td>
+            <td class="text-truncate">{{$guest['checkout']}}</td>
+            <td class="text-truncate">{{$guest->rooms->name ?? None}}</td>
+            <td class="text-truncate">
                 <button type="button" id="{{$guest['id']}}" data-room="{{$guest->room}}" class="btn btn-danger deleted"><i class="fa fa-regular fa-trash"></i></button>
             </td>
         </tr>
