@@ -28,7 +28,7 @@ class AuthContoroller extends Controller
            return redirect()->route('dashboardadmin');
        }
 
-       return redirect()->route('viewlogin');
+       return redirect()->route('home');
        
        unset($session);
     }
