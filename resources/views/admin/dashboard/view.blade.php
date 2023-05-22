@@ -43,8 +43,19 @@
             <div class="card-body">
                 <div class="d-lg-flex d-md-block align-items-center">
                     <div>
-                        <h2 class="text-dark mb-1 w-100 text-truncate font-weight-medium"><sup
-                                class="set-doller">Rp</sup>{{number_format($payment)}}</h2>
+                        <h2 class="text-dark mb-1 w-100 text-truncate font-weight-medium">
+                            @php
+                                $pay = 0;
+                            @endphp
+                        
+                            @foreach ($payment as $payment)  
+                                @if (date('Y-m', strtotime($payment['deleted_at'])) == date('Y-m', strtotime(now())))
+                                    @php
+                                        $pay += $payment['payment'];
+                                    @endphp    
+                                @endif
+                            @endforeach
+                            <sup class="set-doller">Rp</sup>{{number_format($pay)}}</h2>
                         <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Earnings of Month
                         </h6>
                     </div>
