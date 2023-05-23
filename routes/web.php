@@ -19,9 +19,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware(['guest'])->group(function () {
-    // Route::get('/', function (){
-    //    return ('hi');
-    // });
     Route::get('/', [AuthContoroller::class, 'index'])->name('home');
     Route::post('/', [AuthContoroller::class, 'login'])->name('login');
 });
