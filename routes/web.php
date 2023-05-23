@@ -41,6 +41,9 @@ Route::middleware(['auth'])->group(function () {
     // history
     Route::get('/history-booking', [ViewController::class, 'history'])->name('viewhistory');
     
+    // income
+    Route::get('/income-rooms', [ViewController::class, 'income_rooms'])->name('viewincomerooms');
+    
     // profile
     Route::get('/profile', [ViewController::class, 'profile'])->name('viewprofile');
     Route::post('/profile/img/{id}', [ProfileController::class, 'image']);
