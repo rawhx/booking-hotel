@@ -1,3 +1,4 @@
+
             <nav class="navbar top-navbar navbar-expand-md">
                 
                 <div class="navbar-header" data-logobg="skin6">
@@ -27,7 +28,7 @@
                             <a class="nav-link dropdown-toggle pl-md-3 position-relative" href="javascript:void(0)"
                                 id="bell" role="button" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
-                                <span><i data-feather="bell" class="svg-icon"></i></span>
+                                <span><i class="far fa-bell svg-icon"></i></span>
                                 <span class="badge badge-primary notify-no rounded-circle">5</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-left mailbox animated bounceInDown">
@@ -101,29 +102,27 @@
                         <div class="ml-3 d-block" id="clock"></div>  
                     </ul>
                 
-                    <ul class="navbar-nav float-right">
+                    <ul class="navbar-nav">
                         <li class="nav-item d-none d-md-block">
                             <a class="nav-link" href="javascript:void(0)">
                                 <form>
                                     <div class="customize-input">
                                         <input class="form-control custom-shadow custom-radius border-0 bg-white"
                                             type="search" placeholder="Search" aria-label="Search">
-                                        <i class="form-control-icon" data-feather="search"></i>
+                                        <i class="fas fa-search form-control-icon"></i>
                                     </div>
                                 </form>
                             </a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown"
+                        <li class="nav-item dropdown d-flex">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center href="javascript:void(0)" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
-                                <img src="{{auth()->user()->prdfile ?? '/admin/assets/images/users/profile-pic.jpg'}}" alt="user" class="rounded-circle"
-                                    width="40">
-                                <span class="ml-2 d-none d-lg-inline-block"><span>Hello,</span> <span
-                                        class="text-dark">{{auth()->user()->name ?? 'Root'}}</span> <i data-feather="chevron-down"
-                                        class="svg-icon"></i></span>
+                                <div class="rounded-circle" style="height: 40px; width:40px; background-position: center; background-size: cover; background-image: url({{auth()->user()->profile ?? 'https://www.its.ac.id/international/wp-content/uploads/sites/66/2020/02/blank-profile-picture-973460_1280-300x300.jpg'}});"></div>
+                                <span class="ml-2 d-none d-lg-inline-block"><span>Hello,</span> 
+                                <span class="text-dark">{{auth()->user()->name ?? 'Root'}}</span> <i data-feather="chevron-down" class="svg-icon"></i></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
-                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="user"
+                                <a class="dropdown-item topprofile" href="javascript:void(0)"><i data-feather="user"
                                         class="svg-icon mr-2 ml-1"></i>
                                     My Profile</a>
                                 <a class="dropdown-item" href="javascript:void(0)"><i data-feather="credit-card"
