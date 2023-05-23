@@ -36,6 +36,7 @@
                             @php
                                 $total = 0;
                                 $no=0;
+                                $data[];
 
                                 foreach ($guest as $item) {
                                     $tanggal = date('d-M-Y', strtotime($item['deleted_at']));
@@ -89,8 +90,16 @@
         $.ajax({
             type: "GET",
             url: "/excel-income-rooms",
+            xhrFields: {
+                responseType: 'blob' // Mengatur respons sebagai blob (binary large object)
+            },
             success: function (response) {
-
+                // Membuat tautan untuk mengunduh file
+                var blob = new Blob([response]);
+                var link = document.createElement('a');
+                link.href = window.URL.createObjectURL(blob);
+                link.download = 'income-rooms.xlsx';
+                link.click();
             }
         });
     }
