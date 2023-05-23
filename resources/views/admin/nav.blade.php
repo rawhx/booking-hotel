@@ -117,7 +117,7 @@
                         <li class="nav-item dropdown d-flex">
                             <a class="nav-link dropdown-toggle d-flex align-items-center href="javascript:void(0)" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
-                                <div class="rounded-circle" style="height: 40px; width:40px; background-position: center; background-size: cover; background-image: url({{url(auth()->user()->profile) ?? 'https://www.its.ac.id/international/wp-content/uploads/sites/66/2020/02/blank-profile-picture-973460_1280-300x300.jpg'}});"></div>
+                                <div class="rounded-circle" style="height: 40px; width:40px; background-position: center; background-size: cover; background-image: url({{auth()->user()->profile ?? 'https://www.its.ac.id/international/wp-content/uploads/sites/66/2020/02/blank-profile-picture-973460_1280-300x300.jpg'}});"></div>
                                 <span class="ml-2 d-none d-lg-inline-block"><span>Hello,</span> 
                                 <span class="text-dark">{{auth()->user()->name ?? 'Root'}}</span> <i data-feather="chevron-down" class="svg-icon"></i></span>
                             </a>
