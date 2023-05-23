@@ -15,7 +15,7 @@ class ViewController extends Controller
         return view('admin.index', [
             'guest' => $guest->whereNull('deleted_at')->count(),
             'hguest' => $guest->where('deleted_at', !NULL)->count(),
-            'payment' => $guest->where('deleted_at', !NULL)->sum('payment'),
+            'payment' => $guest->where('deleted_at', !NULL),
             'rooms' => $rooms->count(),
         ]);
     }
@@ -24,10 +24,9 @@ class ViewController extends Controller
         $rooms = Rooms::where('aksi', '1');
         $guest = Guest::with('rooms')->orderBy('deleted_at','asc')->get();
       
-        // print_r($guest);
         return view('admin.dashboard.view', [
             'guest' => $guest->whereNull('deleted_at')->count(),
-            'payment' => $guest->where('deleted_at', !NULL)->sum('payment'),
+            'payment' => $guest->where('deleted_at', !NULL),
             'hguest' => $guest->where('deleted_at', !NULL)->count(),
             'rooms' => $rooms->count(),
         ]);
@@ -60,5 +59,14 @@ class ViewController extends Controller
     public function profile()
     {
         return view('admin.profile.view');
+    }
+
+    public function income_rooms()
+    {
+        $guest = Guest::whereNot('deleted_at')->orderBy('deleted_at','asc')->get();
+
+        return view('admin.income-room.view', [
+            'guest' => $guest,
+        ]);
     }
 }
