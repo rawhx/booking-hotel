@@ -36,7 +36,7 @@
                             @php
                                 $total = 0;
                                 $no=0;
-                                $data[];
+                                $data[''];
 
                                 foreach ($guest as $item) {
                                     $tanggal = date('d-M-Y', strtotime($item['deleted_at']));
