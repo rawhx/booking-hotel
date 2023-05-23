@@ -96,7 +96,7 @@
                                 <textarea name="adress" placeholder="address" id="alamat" class="form-control" rows="3">{{auth()->user()->address ?? ''}}</textarea>
                             </div>
                         </div>
-                        <div class="mt-2">
+                        <div class="mt-2 float-right">
                             <button type="submit" class="btn btn-primary me-2">Save Changes</button>
                             <button type="reset" class="btn btn-outline-secondary">Cancel</button>
                         </div>
@@ -128,7 +128,7 @@
                             <label for="lastName" class="form-label">Confirmation Password 2</label>
                             <input class="form-control" type="password" name="password3" id="password2" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"/>
                         </div>
-                        <div class="mt-2">
+                        <div class="mt-2 float-right">
                             <button type="submit" class="btn btn-primary me-2">Save Changes</button>
                             <button type="reset" class="btn btn-outline-secondary">Cancel</button>
                         </div>
@@ -183,6 +183,7 @@
                     if (xhr.status === 200) {
                         // Aksi yang diambil setelah gambar berhasil diunggah
                         $('.page-wrapper').load("/profile")
+                        $('.top-navbar').load("/navbar")
                         Swal.fire(
                             'Save!',
                             'data is successfully saved',
@@ -246,7 +247,7 @@
                     data: formData,
                     success: function (response) { 
                         $('.page-wrapper').load("/profile")
-                        // $('.topbar').load("/navbar")
+                        // $('.top-navbar').load("/navbar")
                         Swal.fire(
                         'Save!',
                         'data is successfully saved',

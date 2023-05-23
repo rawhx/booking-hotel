@@ -66,7 +66,7 @@
     <div class="row float-right m-2">
         <div class="col">
             <button type="submit" class="btn btn-primary">Submit</button>
-            <button type="reset" class="btn btn-warning">Reset</button>
+            <button type="reset" class="btn btn-outline-secondary">Reset</button>
         </div>
     </div>
 </form>
