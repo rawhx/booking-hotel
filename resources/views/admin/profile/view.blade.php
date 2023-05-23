@@ -71,7 +71,7 @@
                                 type="text"
                                 id="email"
                                 name="email"
-                                value="{{auth()->user()->email ?? ''}}"
+                                value="{{url('auth()->user()->email') ?? ''}}"
                                 placeholder="testing@example.com"
                                 />
                             </div>
