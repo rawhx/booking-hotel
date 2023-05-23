@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\GuestController;
+use App\Http\Controllers\admin\IncomeController;
 use App\Http\Controllers\admin\ProfileController;
 use App\Http\Controllers\admin\ViewController;
 use App\Http\Controllers\AuthContoroller;
@@ -43,6 +44,7 @@ Route::middleware(['auth'])->group(function () {
     
     // income
     Route::get('/income-rooms', [ViewController::class, 'income_rooms'])->name('viewincomerooms');
+    Route::get('/excel-income-rooms', [IncomeController::class, 'excelrooms'])->name('viewincomerooms');
     
     // profile
     Route::get('/profile', [ViewController::class, 'profile'])->name('viewprofile');

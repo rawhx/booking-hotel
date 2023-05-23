@@ -86,6 +86,12 @@
     });
 
     function downloadexcel() {
-        alert('p');
+        $.ajax({
+            type: "GET",
+            url: "/excel-income-rooms",
+            success: function (response) {
+
+            }
+        });
     }
 </script>
