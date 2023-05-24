@@ -57,14 +57,16 @@
                             <li class="sidebar-item dashboard selected"> <a class="sidebar-link sidebar-link active" href="javascript:;"
                                     aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span
                                         class="hide-menu">Dashboard</span></a></li>
-                            {{-- <li class="list-divider"></li>
-                            <li class="nav-small-cap"><span class="hide-menu">Master</span></li>
+                            @if (auth()->user()->access == 0)
+                                <li class="list-divider"></li>
+                                <li class="nav-small-cap"><span class="hide-menu">Master</span></li>
 
-                            <li class="sidebar-item rooms"> <a class="sidebar-link" href="ticket-list.html"
-                                    aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span
-                                        class="hide-menu">Rooms
-                                    </span></a>
-                            </li> --}}
+                                <li class="sidebar-item rooms"> <a class="sidebar-link" href="ticket-list.html"
+                                        aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span
+                                            class="hide-menu">Rooms
+                                        </span></a>
+                                </li>
+                            @endif
                             
                             <li class="list-divider"></li>
                             <li class="nav-small-cap"><span class="hide-menu">Report</span></li>
@@ -103,47 +105,17 @@
                                         class="hide-menu">My Profile
                                     </span></a>
                             </li>
-                            <li class="sidebar-item"> <a class="sidebar-link sidebar-link"
-                                    href="authentication-register1.html" aria-expanded="false"><i data-feather="lock"
-                                        class="feather-icon"></i><span class="hide-menu">Register
-                                    </span></a>
-                            </li>
 
-                            <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
-                                    aria-expanded="false"><i data-feather="crosshair" class="feather-icon"></i><span
-                                        class="hide-menu">Multi
-                                        level
-                                        dd</span></a>
-                                <ul aria-expanded="false" class="collapse first-level base-level-line">
-                                    <li class="sidebar-item"><a href="javascript:void(0)" class="sidebar-link"><span
-                                                class="hide-menu"> item 1.1</span></a>
-                                    </li>
-                                    <li class="sidebar-item"><a href="javascript:void(0)" class="sidebar-link"><span
-                                                class="hide-menu"> item 1.2</span></a>
-                                    </li>
-                                    <li class="sidebar-item"> <a class="has-arrow sidebar-link" href="javascript:void(0)"
-                                            aria-expanded="false"><span class="hide-menu">Menu 1.3</span></a>
-                                        <ul aria-expanded="false" class="collapse second-level base-level-line">
-                                            <li class="sidebar-item"><a href="javascript:void(0)" class="sidebar-link"><span
-                                                        class="hide-menu"> item
-                                                        1.3.1</span></a></li>
-                                            <li class="sidebar-item"><a href="javascript:void(0)" class="sidebar-link"><span
-                                                        class="hide-menu"> item
-                                                        1.3.2</span></a></li>
-                                            <li class="sidebar-item"><a href="javascript:void(0)" class="sidebar-link"><span
-                                                        class="hide-menu"> item
-                                                        1.3.3</span></a></li>
-                                            <li class="sidebar-item"><a href="javascript:void(0)" class="sidebar-link"><span
-                                                        class="hide-menu"> item
-                                                        1.3.4</span></a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="sidebar-item"><a href="javascript:void(0)" class="sidebar-link"><span
-                                                class="hide-menu"> item
-                                                1.4</span></a></li>
-                                </ul>
-                            </li>
+                            @if (auth()->user()->access == 1)
+                                <li class="sidebar-item"> <a class="sidebar-link sidebar-link"
+                                        href="authentication-register1.html" aria-expanded="false"><i data-feather="lock"
+                                            class="feather-icon"></i><span class="hide-menu">Accouns
+                                        </span></a>
+                                </li>        
+                            @endif
+                            
                             <li class="list-divider"></li>
+
                             <li class="nav-small-cap"><span class="hide-menu">Extra</span></li>
                             <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="docs/docs.html"
                                     aria-expanded="false"><i data-feather="edit-3" class="feather-icon"></i><span

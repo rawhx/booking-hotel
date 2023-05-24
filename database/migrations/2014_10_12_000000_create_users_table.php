@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('address')->nullable();
             $table->string('password');
             $table->string('profile');
+            $table->string('access');
             $table->rememberToken();
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();

@@ -103,9 +103,11 @@ class IncomeController extends Controller
             $row++;
         }
         $sheet->getStyle('A4:C'.$row)->applyFromArray($styleArray);
-    
+
         $sheet->mergeCells('A'.$row.':B'.$row);
         $sheet->setCellValue('A'.$row, 'Total');
+        $sheet->getStyle('A'.$row)
+                ->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
         $sheet->setCellValue('C'.$row, 'Rp '.$total);
 
         $path = public_path('income-rooms.xlsx');
