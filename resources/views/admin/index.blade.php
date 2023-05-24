@@ -171,17 +171,6 @@
                                 <div class="d-lg-flex d-md-block align-items-center">
                                     <div>
                                         <h2 class="text-dark mb-1 w-100 text-truncate font-weight-medium">
-                                            @php
-                                                $pay = 0;
-                                            @endphp
-                                        
-                                            @foreach ($payment as $payment)  
-                                                @if (date('Y-m', strtotime($payment['deleted_at'])) == date('Y-m', strtotime(now())))
-                                                    @php
-                                                        $pay += $payment['payment'];
-                                                    @endphp    
-                                                @endif
-                                            @endforeach
                                             <sup class="set-doller">Rp</sup>{{number_format($pay)}}</h2>
                                         <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Earnings of Month
                                         </h6>
@@ -629,6 +618,7 @@
         <script src="{{url('/admin/dist')}}/js/pages/dashboards/dashboard1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/js/selectize.min.js" integrity="sha512-IOebNkvA/HZjMM7MxL0NYeLYEalloZ8ckak+NDtOViP7oiYzG5vn6WVXyrJDiJPhl4yRdmNAG49iuLmhkUdVsQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="{{url('/admin')}}/navigasi.js" type="text/javascript"></script>
+        <script src="{{url('/admin')}}/custom.js" type="text/javascript"></script>
         <!-- sweetalert -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <!-- select2 -->
@@ -642,55 +632,7 @@
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
                 });
-
-                textime();
-                updateClock();
             });
-
-
-            function updateClock() {
-                var now = new Date();
-                var hours = now.getHours();
-                var minutes = now.getMinutes();
-                var seconds = now.getSeconds();
-
-                var amPm = hours < 12 ? " AM" : " PM";
-
-                hours = hours % 12;
-                hours = hours ? hours : 12;
-                hours = hours < 10 ? "0" + hours : hours;
-                minutes = minutes < 10 ? "0" + minutes : minutes;
-                seconds = seconds < 10 ? "0" + seconds : seconds;
-
-                var timeString = hours + ":" + minutes + amPm;
-                document.getElementById("clock").innerHTML = timeString;
-            }
-            
-            setInterval(updateClock, 1000);
-
-            function number(evt) {
-                var charCode = (evt.which) ? evt.which : event.keyCode
-                if (charCode > 31 && (charCode < 48 || charCode > 57))
-                return false;
-                return true;
-            }
-
-            function textime() {
-                var time = new Date().getHours();
-                var message;
-
-                if (time >= 5 && time < 11) {
-                    message = 'Good Morning';
-                } else if (time >= 11 && time < 17) {
-                    message = 'Good Afternoon';
-                } else {
-                    message = 'Good Night';
-                }
-                document.getElementById("texttime").innerHTML = message;
-
-            }
-
-            setInterval(textime, 120000);
         </script>
     </body>
 

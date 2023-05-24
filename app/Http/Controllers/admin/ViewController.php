@@ -12,10 +12,17 @@ class ViewController extends Controller
     {
         $rooms = Rooms::where('aksi', '1');
         $guest = Guest::with('rooms')->orderBy('deleted_at','asc')->get();
+        $pay = 0;
+
+        foreach ($guest as $income)  {
+            if(date('Y-m', strtotime($income['deleted_at']))  == date('Y-m', strtotime(now())) ) {
+                $pay += $income['payment'];
+            }
+        }
         return view('admin.index', [
             'guest' => $guest->whereNull('deleted_at')->count(),
             'hguest' => $guest->where('deleted_at', !NULL)->count(),
-            'payment' => $guest->where('deleted_at', !NULL),
+            'pay' => $pay,
             'rooms' => $rooms->count(),
         ]);
     }
@@ -23,10 +30,17 @@ class ViewController extends Controller
     public function dashboard() {
         $rooms = Rooms::where('aksi', '1');
         $guest = Guest::with('rooms')->orderBy('deleted_at','asc')->get();
-      
+        $pay = 0;
+
+        foreach ($guest as $income)  {
+            if(date('Y-m', strtotime($income['deleted_at']))  == date('Y-m', strtotime(now())) ) {
+                $pay += $income['payment'];
+            }
+        }
+
         return view('admin.dashboard.view', [
             'guest' => $guest->whereNull('deleted_at')->count(),
-            'payment' => $guest->where('deleted_at', !NULL),
+            'pay' => $pay,
             'hguest' => $guest->where('deleted_at', !NULL)->count(),
             'rooms' => $rooms->count(),
         ]);

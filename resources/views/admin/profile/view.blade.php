@@ -88,12 +88,13 @@
                                 name="username"
                                 value="{{auth()->user()->username ?? ''}}"
                                 placeholder="example.qy"
+                                maxlength="25"
                                 autofocus
                                 />
                             </div>
                             <div class="mb-3 col-md-6">
                                 <label for="alamat" class="form-label">Address</label>
-                                <textarea name="adress" placeholder="address" id="alamat" class="form-control" rows="3">{{auth()->user()->address ?? ''}}</textarea>
+                                <textarea name="adress" placeholder="address" style="overflow: hidden" id="alamat" class="form-control" rows="3">{{auth()->user()->address ?? ''}}</textarea>
                             </div>
                         </div>
                         <div class="mt-2 float-right">
@@ -147,7 +148,24 @@
     </p>
 </footer>
 
-<script>    
+<script>  
+    $(document).ready(function() {
+        // Fungsi untuk mengatur tinggi textarea
+        function autoResizeTextarea() {
+        // Mengambil semua textarea pada halaman
+        $('textarea').each(function() {
+            // Mengatur tinggi textarea berdasarkan scrollHeight (tinggi konten)
+            this.style.height = 'auto';
+            this.style.height = this.scrollHeight + 'px';
+        });
+        }
+    
+        // Panggil fungsi autoResizeTextarea saat halaman dimuat dan saat textarea diubah isinya
+        autoResizeTextarea();
+        $('textarea').on('input', autoResizeTextarea);
+
+    });
+
     function password() { 
         $('.password').removeClass('d-none');
         $('.info').hide(); 
@@ -275,7 +293,7 @@
       
         Swal.fire({
             title: 'Information',
-            text: 'are you sure to save the data??',
+            text: 'are you sure to save password??',
             icon: 'info',
             showCancelButton: true,
             cancelButtonColor: '#d33',
@@ -283,7 +301,7 @@
             confirmButtonText: '<i class="bx bx-check"></i> Yes',
             cancelButtonText: '<i class="bx bx-x"></i> No'
         }).then((result) => {
-          if (password1 == password2 && password2 == password3 && password3 == password2) {
+          if (password1 == password2 && password2 == password3) {
             if (result.isConfirmed) {
                 $.ajax({
                     type: 'POST',
