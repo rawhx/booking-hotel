@@ -40,7 +40,7 @@ class ProfileController extends Controller
                 $path = $gambar->store('public/admin/profile/gambar');
     
                 // Lakukan aksi lain yang diperlukan, seperti menyimpan path gambar ke database, dll.
-                $profile->profile = str_replace('public', "", $path);
+                $profile->profile = str_replace('public', "storage", $path);
                 $profile->updated_at = now(); 
                 $profile->update();
             }
@@ -50,7 +50,7 @@ class ProfileController extends Controller
             $path = $gambar->store('public/admin/profile/gambar');
 
             // Lakukan aksi lain yang diperlukan, seperti menyimpan path gambar ke database, dll.
-            $profile->profile = str_replace('public', "", $path);
+            $profile->profile = str_replace('public', "storage", $path);
             $profile->updated_at = now(); 
             $profile->update();
 
