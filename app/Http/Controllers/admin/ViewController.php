@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\admin\Guest;
 use App\Models\admin\Rooms;
+use App\Models\User;
 
 class ViewController extends Controller
 {
@@ -78,9 +79,33 @@ class ViewController extends Controller
     public function income_rooms()
     {
         $guest = Guest::whereNot('deleted_at')->orderBy('deleted_at','asc')->get();
+        $total = 0;
+        $data=[];
+
+        foreach ($guest as $item) {
+            $tanggal = date('d-M-Y', strtotime($item['deleted_at']));
+            $harga = $item['payment']; 
+            
+            if (!isset($data[$tanggal])) {
+                $data[$tanggal] = $harga;
+            } else {
+                $data[$tanggal] += $harga;
+            }
+
+            $total += $harga;
+        }
 
         return view('admin.income-room.view', [
-            'guest' => $guest,
+            'data' => $data,
+            'total' => $total,
+        ]);
+    }
+    
+    public function accounts()
+    {
+        $user = User::orderBy('access', 'asc')->get();
+        return view('admin.account.view', [
+            'user' => $user,
         ]);
     }
 }

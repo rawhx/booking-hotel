@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\AccountController;
 use App\Http\Controllers\admin\GuestController;
 use App\Http\Controllers\admin\IncomeController;
 use App\Http\Controllers\admin\ProfileController;
@@ -51,4 +52,12 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/profile/img/{id}', [ProfileController::class, 'image']);
     Route::post('/profile/password/{id}', [ProfileController::class, 'password']);
     Route::get('/profile/{id}', [ProfileController::class, 'update'])->name('update_profile');
+
+    // accounts
+    Route::get('/accounts', [ViewController::class, 'accounts'])->name('viewaccounts');
+    Route::get('/data/accounts', [AccountController::class, 'index'])->name('dataaccount');
+    Route::post('/store/accounts', [AccountController::class, 'store'])->name('storeaccounts');
+    Route::get('/edit/accounts/{id}', [AccountController::class, 'edit'])->name('editaccount');
+    Route::post('/edit/accounts/{id}', [AccountController::class, 'update'])->name('editaccount');
+    Route::post('/destroy/accounts/{id}', [AccountController::class, 'destroy'])->name('deleteaccounts');
 });

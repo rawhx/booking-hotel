@@ -1,3 +1,15 @@
+$('.dashboard').click(function (e) { 
+    e.preventDefault();
+    $('.page-wrapper').load("/dashboard");
+    $('.guest').removeClass("selected");
+    $('.history').removeClass("selected");
+    $('.profile').removeClass("selected");
+    $('.topprofile').removeClass("active");
+    $('.income').removeClass("selected");
+    $('.account').removeClass("selected");
+    $('.dashboard').addClass("selected");
+});
+
 $('.guest').click(function (e) { 
     e.preventDefault();
     $('.page-wrapper').load("/rooms");
@@ -5,6 +17,7 @@ $('.guest').click(function (e) {
     $('.history').removeClass("selected");
     $('.income').removeClass("selected");
     $('.profile').removeClass("selected");
+    $('.account').removeClass("selected");
     $('.topprofile').removeClass("active");
     $('.guest').addClass("selected");
 });
@@ -14,10 +27,23 @@ $('.history').click(function (e) {
     $('.page-wrapper').load("/history-booking");
     $('.dashboard').removeClass("selected");
     $('.guest').removeClass("selected");
+    $('.account').removeClass("selected");
     $('.profile').removeClass("selected");
     $('.income').removeClass("selected");
     $('.history').addClass("selected");
     $('.topprofile').removeClass("active");
+});
+
+$('.income-rooms').click(function (e) { 
+    e.preventDefault();
+    $('.page-wrapper').load("/income-rooms");
+    $('.dashboard').removeClass("selected");
+    $('.guest').removeClass("selected");
+    $('.profile').removeClass("selected");
+    $('.account').removeClass("selected");
+    $('.topprofile').removeClass("active");
+    $('.history').removeClass("selected");
+    $('.income').addClass("selected");
 });
 
 $('.profile').click(function (e) { 
@@ -27,6 +53,7 @@ $('.profile').click(function (e) {
     $('.guest').removeClass("selected");
     $('.history').removeClass("selected");
     $('.income').removeClass("selected");
+    $('.account').removeClass("selected");
     $('.profile').addClass("selected");
     $('.topprofile').addClass("active");
 });
@@ -38,28 +65,19 @@ $('.topprofile').click(function (e) {
     $('.guest').removeClass("selected");
     $('.history').removeClass("selected");
     $('.income').removeClass("selected");
+    $('.account').removeClass("selected");
     $('.profile').addClass("selected");
     $('.topprofile').addClass("active");
 });
 
-$('.dashboard').click(function (e) { 
+$('.account').click(function (e) { 
     e.preventDefault();
-    $('.page-wrapper').load("/dashboard");
-    $('.guest').removeClass("selected");
-    $('.history').removeClass("selected");
-    $('.profile').removeClass("selected");
-    $('.topprofile').removeClass("active");
-    $('.income').removeClass("selected");
-    $('.dashboard').addClass("selected");
-});
-
-$('.income-rooms').click(function (e) { 
-    e.preventDefault();
-    $('.page-wrapper').load("/income-rooms");
+    $('.page-wrapper').load("/accounts");
     $('.dashboard').removeClass("selected");
     $('.guest').removeClass("selected");
+    $('.history').removeClass("selected");
+    $('.income').removeClass("selected");
     $('.profile').removeClass("selected");
     $('.topprofile').removeClass("active");
-    $('.history').removeClass("selected");
-    $('.income').addClass("selected");
+    $('.account').addClass("selected");
 });
