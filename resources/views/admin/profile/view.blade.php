@@ -265,7 +265,7 @@
                     data: formData,
                     success: function (response) { 
                         $('.page-wrapper').load("/profile")
-                        // $('.top-navbar').load("/navbar")
+                        $('.top-navbar').load("/navbar")
                         Swal.fire(
                         'Save!',
                         'data is successfully saved',

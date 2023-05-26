@@ -27,33 +27,16 @@
                     <table id="DataTable" class="table table-bordered table-responsive-md">
                         <thead>
                             <tr>
-                                <th style="width:15px">No</th>
+                                <th class="text-center" style="width:20px">No</th>
                                 <th>Date</th>
                                 <th>Income</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @php
-                                $total = 0;
-                                $no=0;
-                                $data=[];
-
-                                foreach ($guest as $item) {
-                                    $tanggal = date('d-M-Y', strtotime($item['deleted_at']));
-                                    $harga = $item['payment']; 
-                                    
-                                    if (!isset($data[$tanggal])) {
-                                        $data[$tanggal] = $harga;
-                                    } else {
-                                        $data[$tanggal] += $harga;
-                                    }
-
-                                    $total += $harga;
-                                }
-                            @endphp
+                            <?php $no=1; ?>
                             @foreach ($data as $tanggal => $totalHarga)
                                 <tr>
-                                    <td class="text-truncate">{{$no+=1}}</td>
+                                    <td class="text-truncate text-center">{{$no++}}</td>
                                     <td class="text-truncate">{{ date('d-M-Y', strtotime($tanggal)) }}</td>
                                     <td class="text-truncate">Rp {{number_format($totalHarga) }}</td>
                                 </tr> 

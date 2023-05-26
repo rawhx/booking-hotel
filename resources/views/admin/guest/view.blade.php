@@ -30,28 +30,28 @@
                                 <table id="DataTable" class="table table-bordered table-responsive-lg">
                                     <thead>
                                         <tr>
-                                            <th>No</th>
-                                            <th>Name</th>
-                                            <th>Id Number</th>
-                                            <th>Check In</th>
-                                            <th>Check Out</th>
-                                            <th>Room</th>
-                                            <th>Action</th>
+                                            <th class="text-center">No</th>
+                                            <th class="text-center">Name</th>
+                                            <th class="text-center">Id Number</th>
+                                            <th class="text-center">Check In</th>
+                                            <th class="text-center">Check Out</th>
+                                            <th class="text-center">Room</th>
+                                            <th class="text-center">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody id="data">
                                         @foreach ($guest as $no => $guest)    
                                         <tr>
-                                            <td class="text-truncate">{{$no+1}}</td>
-                                            <td class="text-truncate">
+                                            <td class="text-truncate text-center align-middle">{{$no+1}}</td>
+                                            <td class="text-truncate align-middle">
                                                 {{$guest['name']}}
                                                 <p style="font-size: 9pt; margin:0">{{$guest['phone']}}</p>
                                             </td>
-                                            <td class="text-truncate">{{$guest['number_id']}}</td>
-                                            <td class="text-truncate">{{$guest['checkin']}}</td>
-                                            <td class="text-truncate">{{$guest['checkout']}}</td>
-                                            <td class="text-truncate">{{$guest->rooms->name ?? None}}</td>
-                                            <td class="text-truncate">
+                                            <td class="text-truncate align-middle">{{$guest['number_id']}}</td>
+                                            <td class="text-truncate align-middle">{{$guest['checkin']}}</td>
+                                            <td class="text-truncate align-middle">{{$guest['checkout']}}</td>
+                                            <td class="text-truncate align-middle">{{$guest->rooms->name ?? None}}</td>
+                                            <td class="text-truncate align-middle">
                                                 <button type="button" id="{{$guest['id']}}" data-room="{{$guest->room}}" class="btn btn-danger deleted"><i class="fa fa-regular fa-trash"></i></button>
                                             </td>
                                         </tr>
@@ -59,13 +59,13 @@
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th>No</th>
-                                            <th>Name</th>
-                                            <th>Id Number</th>
-                                            <th>Check In</th>
-                                            <th>Check Out</th>
-                                            <th>Room</th>
-                                            <th>Action</th>
+                                            <th class="text-center">No</th>
+                                            <th class="text-center">Name</th>
+                                            <th class="text-center">Id Number</th>
+                                            <th class="text-center">Check In</th>
+                                            <th class="text-center">Check Out</th>
+                                            <th class="text-center">Room</th>
+                                            <th class="text-center">Action</th>
                                         </tr>
                                     </tfoot>
                                 </table>

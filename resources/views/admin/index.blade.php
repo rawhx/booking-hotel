@@ -21,6 +21,7 @@
         <link href="{{url('/admin/assets')}}/extra-libs/jvector/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
         <!-- Custom CSS -->
         <link href="{{url('/admin/dist')}}/css/style.min.css" rel="stylesheet">
+        <link href="{{url('/admin/dist')}}/css/icons/bx-icon/css/boxicons.min.css" rel="stylesheet">
         <!-- select2 -->
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
         <!-- DataTable -->
@@ -43,9 +44,10 @@
         
         <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
             data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
-            
             <header class="topbar" data-navbarbg="skin6">
-                @include('admin/nav')
+                <nav class="navbar top-navbar navbar-expand-md">
+                    @include('admin/nav')
+                </nav>
             </header>
             
             <aside class="left-sidebar" data-sidebarbg="skin6">
@@ -106,10 +108,10 @@
                                     </span></a>
                             </li>
 
-                            @if (auth()->user()->access == 1)
-                                <li class="sidebar-item"> <a class="sidebar-link sidebar-link"
-                                        href="authentication-register1.html" aria-expanded="false"><i data-feather="lock"
-                                            class="feather-icon"></i><span class="hide-menu">Accouns
+                            @if (auth()->user()->access == 0)
+                                <li class="sidebar-item account"> <a class="sidebar-link sidebar-link"
+                                        href="javascript:;" aria-expanded="false"><i data-feather="lock"
+                                            class="feather-icon"></i><span class="hide-menu">Accounts
                                         </span></a>
                                 </li>        
                             @endif
